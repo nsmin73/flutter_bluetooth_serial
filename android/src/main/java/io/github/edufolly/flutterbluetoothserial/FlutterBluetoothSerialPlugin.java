@@ -541,9 +541,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                         readSink = null;
                     }
                 } else {
-                    Log.d(TAG, "onDisconnected by local (id: " + id + ")");
-                        readSink.endOfStream();
-                        readSink = null;
+                    Log.d(TAG, "onDisconnected by local!!!!!!! (id: " + id + ")");
                 }
             });
         }
