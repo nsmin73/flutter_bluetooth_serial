@@ -545,6 +545,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                     if (readSink != null) {
                         readSink.endOfStream();
                         readSink = null;
+                    }
                 }
             });
         }
