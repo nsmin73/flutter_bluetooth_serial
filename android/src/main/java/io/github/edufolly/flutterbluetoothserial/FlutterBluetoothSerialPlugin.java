@@ -93,24 +93,24 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                 
                 switch (action) {
                     case BluetoothAdapter.ACTION_STATE_CHANGED:
+                        
                         // Disconnect all connections
+                        // 블루투스 상태가 변경되면 무조건 연결끊기게 되있는루틴이므로 주석처리함
+                        // 23.01.04
+                        /*
                         int size = connections.size();
                         
-//                         for (int i = 0; i < size; i++) {
-//                             BluetoothConnection connection = connections.valueAt(i);
-                            
-//                             Log.d(TAG, "connection.disconnect() (size: " + size + ")");
-//                             connection.disconnect();
-//                         }
-                        
-//                         connections.clear();
-
+                         for (int i = 0; i < size; i++) {
+                             BluetoothConnection connection = connections.valueAt(i);
+                             connection.disconnect();
+                         }
+                         connections.clear();
+                        */
                         stateSink.success(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothDevice.ERROR));
                         break;
                 }
             }
         };
-
 
         // Pairing requests
         pairingRequestReceiver = new BroadcastReceiver() {
