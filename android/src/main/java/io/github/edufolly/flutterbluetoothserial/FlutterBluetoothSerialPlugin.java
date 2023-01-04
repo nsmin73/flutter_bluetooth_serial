@@ -96,6 +96,8 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                         int size = connections.size();
                         for (int i = 0; i < size; i++) {
                             BluetoothConnection connection = connections.valueAt(i);
+                            
+                            Log.d(TAG, "connection.disconnect() (size: " + size + ")");
                             connection.disconnect();
                         }
                         connections.clear();
