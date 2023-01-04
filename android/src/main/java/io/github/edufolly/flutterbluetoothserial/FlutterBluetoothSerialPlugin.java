@@ -547,6 +547,8 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                     }
                 } else {
                     Log.d(TAG, "onDisconnected by local!!!!!!! (id: " + id + ")");
+                     // 아래는 추가됨.. 로컬 디스커넥트 됐을때 상태값을 제대로 못불러오므로 Remote와
+                     // 같이 이벤트 처리하게 변경.
                      if (readSink != null) {
                         readSink.endOfStream();
                         readSink = null;
