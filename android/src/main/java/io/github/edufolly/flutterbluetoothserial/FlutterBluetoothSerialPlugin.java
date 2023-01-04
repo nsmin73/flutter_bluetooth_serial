@@ -90,16 +90,18 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                 }
 
                 final String action = intent.getAction();
+                
                 switch (action) {
-                    case BluetoothAdapter.ACTION_STATE_CHANGED:
+                    case BluetoothAdapter.ACTION_ACL_DISCONNECTED: //ACTION_STATE_CHANGED:
                         // Disconnect all connections
-                        int size = 3;//connections.size();
+                        int size = connections.size();
                         for (int i = 0; i < size; i++) {
                             BluetoothConnection connection = connections.valueAt(i);
                             
                             Log.d(TAG, "connection.disconnect() (size: " + size + ")");
                             connection.disconnect();
                         }
+                        
                         connections.clear();
 
                         stateSink.success(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothDevice.ERROR));
