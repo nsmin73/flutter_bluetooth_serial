@@ -70,7 +70,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
 
     // Connections
     /// Contains all active connections. Maps ID of the connection with plugin data channels. 
-    private final SparseArray<BluetoothConnectionWrapper> connections = new SparseArray<>(3);
+    private final SparseArray<BluetoothConnectionWrapper> connections = new SparseArray<>(2);
 
     /// Last ID given to any connection, used to avoid duplicate IDs 
     private int lastConnectionId = 0;
@@ -93,7 +93,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                 switch (action) {
                     case BluetoothAdapter.ACTION_STATE_CHANGED:
                         // Disconnect all connections
-                        int size = connections.size();
+                        int size = 3;//connections.size();
                         for (int i = 0; i < size; i++) {
                             BluetoothConnection connection = connections.valueAt(i);
                             
